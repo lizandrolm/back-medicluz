@@ -32,18 +32,18 @@ public abstract class EntidadBase {
     private Long version = 0L;
 
     @CreatedDate
-    @Column(name = "creado_en", nullable = false, updatable = false)
-    private LocalDateTime creadoEn;
+    @Column(name = "fecha_registro", nullable = false, updatable = false)
+    private LocalDateTime fechaRegistro;
 
     @LastModifiedDate
-    @Column(name = "modificado_en", nullable = false)
-    private LocalDateTime modificadoEn;
+    @Column(name = "fecha_actualiza", nullable = false)
+    private LocalDateTime fechaActualiza;
 
     @CreatedBy
-    @Column(name = "creado_por", updatable = false, length = 150)
-    private String creadoPor;
+    @Column(name = "usuario_registra", updatable = false, length = 150)
+    private String usuarioRegistra;
 
     @LastModifiedBy
-    @Column(name = "modificado_por", length = 150)
-    private String modificadoPor;
+    @Column(name = "usuario_actualiza", length = 150)
+    private String usuarioActualiza;
 }

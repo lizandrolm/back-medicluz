@@ -4,30 +4,30 @@
 -- Opciones del menú con permisos por rol
 
 -- ─── Roles ───────────────────────────────────────────────────────────────────
-INSERT INTO roles (nombre, nombre_visualizacion, descripcion, activo, creado_en, modificado_en)
+INSERT INTO roles (nombre, nombre_visualizacion, descripcion, activo, fecha_registro, fecha_actualiza)
 VALUES
-    ('ADMINISTRADOR', 'Administrador',   'Acceso total al sistema',                       TRUE, NOW(), NOW()),
+    ('ADMINISTRADOR', 'Administrador',   'Acceso total al sistema',                        TRUE, NOW(), NOW()),
     ('MEDICO',        'Médico',          'Gestión de pacientes, citas e historial clínico', TRUE, NOW(), NOW()),
-    ('RECEPCIONISTA', 'Recepcionista',   'Agendamiento de citas y registro de pacientes',  TRUE, NOW(), NOW());
+    ('RECEPCIONISTA', 'Recepcionista',   'Agendamiento de citas y registro de pacientes',   TRUE, NOW(), NOW());
 
 -- ─── Opciones padre (secciones del menú) ─────────────────────────────────────
-INSERT INTO opciones (codigo, nombre, icono, ruta, orden_visualizacion, activo, id_padre, creado_en, modificado_en)
+INSERT INTO opciones (codigo, nombre, icono, ruta, orden_visualizacion, activo, id_padre, fecha_registro, fecha_actualiza)
 VALUES
-    ('PANEL',           'Panel',            'LayoutDashboard',  '/dashboard',   1, TRUE, NULL, NOW(), NOW()),
-    ('PACIENTES',       'Pacientes',        'Users',            '/patients',    2, TRUE, NULL, NOW(), NOW()),
-    ('CITAS',           'Citas',            'CalendarDays',     '/citas',       3, TRUE, NULL, NOW(), NOW()),
-    ('CONFIGURACION',   'Configuración',    'Settings',         NULL,           9, TRUE, NULL, NOW(), NOW());
+    ('PANEL',         'Panel',         'LayoutDashboard', '/dashboard', 1, TRUE, NULL, NOW(), NOW()),
+    ('PACIENTES',     'Pacientes',     'Users',           '/patients',  2, TRUE, NULL, NOW(), NOW()),
+    ('CITAS',         'Citas',         'CalendarDays',    '/citas',     3, TRUE, NULL, NOW(), NOW()),
+    ('CONFIGURACION', 'Configuración', 'Settings',         NULL,        9, TRUE, NULL, NOW(), NOW());
 
 -- ─── Opciones hijo ────────────────────────────────────────────────────────────
-INSERT INTO opciones (codigo, nombre, icono, ruta, orden_visualizacion, activo, id_padre, creado_en, modificado_en)
+INSERT INTO opciones (codigo, nombre, icono, ruta, orden_visualizacion, activo, id_padre, fecha_registro, fecha_actualiza)
 VALUES
-    ('NUEVO_PACIENTE',  'Nuevo paciente',   'UserPlus',         '/patients/new',    1, TRUE,
+    ('NUEVO_PACIENTE', 'Nuevo paciente', 'UserPlus',      '/patients/new',    1, TRUE,
         (SELECT id FROM opciones WHERE codigo = 'PACIENTES'), NOW(), NOW()),
-    ('AGENDA',          'Agenda',           'CalendarCheck',    '/citas/agenda',    1, TRUE,
+    ('AGENDA',         'Agenda',         'CalendarCheck', '/citas/agenda',    1, TRUE,
         (SELECT id FROM opciones WHERE codigo = 'CITAS'), NOW(), NOW()),
-    ('ROLES',           'Roles',            'Shield',           '/config/roles',    1, TRUE,
+    ('ROLES',          'Roles',          'Shield',        '/config/roles',    1, TRUE,
         (SELECT id FROM opciones WHERE codigo = 'CONFIGURACION'), NOW(), NOW()),
-    ('USUARIOS',        'Usuarios',         'UserCog',          '/config/usuarios', 2, TRUE,
+    ('USUARIOS',       'Usuarios',       'UserCog',       '/config/usuarios', 2, TRUE,
         (SELECT id FROM opciones WHERE codigo = 'CONFIGURACION'), NOW(), NOW());
 
 -- ─── Permisos ADMINISTRADOR: acceso total ────────────────────────────────────
@@ -61,7 +61,7 @@ WHERE r.nombre = 'RECEPCIONISTA'
 -- ─── Usuario administrador inicial ───────────────────────────────────────────
 -- Contraseña: Admin@2025!  (BCrypt $2a$12$)
 INSERT INTO usuarios (primer_nombre, apellido, correo, contrasena, id_rol, activo,
-                      intentos_fallidos, creado_en, modificado_en)
+                      intentos_fallidos, fecha_registro, fecha_actualiza)
 VALUES (
     'Administrador',
     'Sistema',

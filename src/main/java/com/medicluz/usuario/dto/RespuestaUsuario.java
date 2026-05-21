@@ -15,6 +15,6 @@ public record RespuestaUsuario(
     String nombreRol,
     String nombreVisualizacionRol,
     boolean activo,
-    LocalDateTime creadoEn,
-    LocalDateTime modificadoEn
+    LocalDateTime fechaRegistro,
+    LocalDateTime fechaActualiza
 ) {}

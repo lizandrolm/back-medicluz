@@ -148,7 +148,7 @@ public class PacienteServicio {
                 .parentescoEmergencia(p.getParentescoEmergencia())
                 .tieneSeguro(p.isTieneSeguro()).empresaSeguro(p.getEmpresaSeguro())
                 .numeroPoliza(p.getNumeroPoliza()).estado(p.getEstado())
-                .creadoEn(p.getCreadoEn()).modificadoEn(p.getModificadoEn())
+                .fechaRegistro(p.getFechaRegistro()).fechaActualiza(p.getFechaActualiza())
                 .build();
     }
 

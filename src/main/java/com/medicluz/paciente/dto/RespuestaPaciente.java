@@ -18,5 +18,5 @@ public record RespuestaPaciente(
     String historialQuirurgico, String antecedentesFamiliares, String observaciones,
     String nombreEmergencia, String telefonoEmergencia, String parentescoEmergencia,
     boolean tieneSeguro, String empresaSeguro, String numeroPoliza,
-    EstadoPaciente estado, LocalDateTime creadoEn, LocalDateTime modificadoEn
+    EstadoPaciente estado, LocalDateTime fechaRegistro, LocalDateTime fechaActualiza
 ) {}

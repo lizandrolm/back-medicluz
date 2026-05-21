@@ -131,8 +131,8 @@ public class UsuarioServicio {
                 .nombreRol(u.getRol().getNombre())
                 .nombreVisualizacionRol(u.getRol().getNombreVisualizacion())
                 .activo(u.isActivo())
-                .creadoEn(u.getCreadoEn())
-                .modificadoEn(u.getModificadoEn())
+                .fechaRegistro(u.getFechaRegistro())
+                .fechaActualiza(u.getFechaActualiza())
                 .build();
     }
 }

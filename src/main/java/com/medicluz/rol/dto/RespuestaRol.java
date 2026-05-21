@@ -13,6 +13,6 @@ public record RespuestaRol(
     boolean activo,
     int cantidadUsuarios,
     List<RespuestaPermiso> permisos,
-    LocalDateTime creadoEn,
-    LocalDateTime modificadoEn
+    LocalDateTime fechaRegistro,
+    LocalDateTime fechaActualiza
 ) {}

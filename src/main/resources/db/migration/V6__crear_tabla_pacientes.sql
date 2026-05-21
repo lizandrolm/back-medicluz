@@ -3,10 +3,10 @@
 CREATE TABLE pacientes (
     id                      BIGSERIAL       NOT NULL,
     version                 BIGINT          NOT NULL DEFAULT 0,
-    creado_en               TIMESTAMP       NOT NULL,
-    modificado_en           TIMESTAMP       NOT NULL,
-    creado_por              VARCHAR(150),
-    modificado_por          VARCHAR(150),
+    fecha_registro          TIMESTAMP       NOT NULL,
+    fecha_actualiza         TIMESTAMP       NOT NULL,
+    usuario_registra        VARCHAR(150),
+    usuario_actualiza       VARCHAR(150),
 
     -- Identificación
     codigo                  VARCHAR(20)     NOT NULL,

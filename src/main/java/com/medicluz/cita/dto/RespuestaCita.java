@@ -18,6 +18,6 @@ public record RespuestaCita(
     EstadoCita estado,
     String motivo,
     String notas,
-    LocalDateTime creadoEn,
-    LocalDateTime modificadoEn
+    LocalDateTime fechaRegistro,
+    LocalDateTime fechaActualiza
 ) {}

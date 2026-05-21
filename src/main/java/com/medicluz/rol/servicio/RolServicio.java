@@ -138,8 +138,8 @@ public class RolServicio {
                 .permisos(conPermisos
                         ? rol.getRolesOpciones().stream().map(this::aRespuestaPermiso).toList()
                         : List.of())
-                .creadoEn(rol.getCreadoEn())
-                .modificadoEn(rol.getModificadoEn())
+                .fechaRegistro(rol.getFechaRegistro())
+                .fechaActualiza(rol.getFechaActualiza())
                 .build();
     }
 

@@ -131,8 +131,8 @@ public class CitaServicio {
                 .estado(c.getEstado())
                 .motivo(c.getMotivo())
                 .notas(c.getNotas())
-                .creadoEn(c.getCreadoEn())
-                .modificadoEn(c.getModificadoEn())
+                .fechaRegistro(c.getFechaRegistro())
+                .fechaActualiza(c.getFechaActualiza())
                 .build();
     }
 }

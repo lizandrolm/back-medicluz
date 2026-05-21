@@ -46,9 +46,9 @@ public class TokenRefresco {
     @Column(name = "ip_origen", length = 45)
     private String ipOrigen;
 
-    @Column(name = "creado_en", nullable = false, updatable = false)
+    @Column(name = "fecha_registro", nullable = false, updatable = false)
     @Builder.Default
-    private Instant creadoEn = Instant.now();
+    private Instant fechaRegistro = Instant.now();
 
     // ─── Helpers ────────────────────────────────────────────────────────────
 
