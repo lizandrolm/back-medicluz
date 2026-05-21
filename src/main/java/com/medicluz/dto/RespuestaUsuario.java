@@ -1,0 +1,12 @@
+package com.medicluz.dto;
+
+import lombok.Builder;
+import java.time.LocalDateTime;
+
+@Builder
+public record RespuestaUsuario(
+    Long id, String primerNombre, String apellido, String nombreCompleto,
+    String correo, Long idRol, String nombreRol,
+    String nombreVisualizacionRol, boolean activo,
+    LocalDateTime fechaRegistro, LocalDateTime fechaActualiza
+) {}

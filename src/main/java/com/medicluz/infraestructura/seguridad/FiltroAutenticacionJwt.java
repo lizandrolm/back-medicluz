@@ -22,7 +22,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class FiltroAutenticacionJwt extends OncePerRequestFilter {
 
-    private final ServicioJwt servicioJwt;
+    private final JwtService jwtService;
     private final UserDetailsService servicioDetallesUsuario;
 
     @Override
@@ -42,12 +42,12 @@ public class FiltroAutenticacionJwt extends OncePerRequestFilter {
         final String jwt = encabezadoAutorizacion.substring(7);
 
         try {
-            final String correo = servicioJwt.extraerCorreo(jwt);
+            final String correo = jwtService.extraerCorreo(jwt);
 
             if (correo != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                 UserDetails detallesUsuario = servicioDetallesUsuario.loadUserByUsername(correo);
 
-                if (servicioJwt.esTokenValido(jwt, detallesUsuario)) {
+                if (jwtService.esTokenValido(jwt, detallesUsuario)) {
                     UsernamePasswordAuthenticationToken tokenAutenticacion =
                             new UsernamePasswordAuthenticationToken(
                                     detallesUsuario, null, detallesUsuario.getAuthorities()
